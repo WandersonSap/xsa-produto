@@ -1,0 +1,28 @@
+ID: produto_27
+_schema-version: '2.0'
+description: Produto T46_27
+version: 0.0.1
+modules:
+  - name: mod_27_web
+    type: html5
+    path: mod_27_web
+    parameters:
+      app-name: modulo_27_web
+      memory: 32M
+      disk-quota: 32M
+
+  - name: mod_27_db
+    type: hdb
+    path: mod_27_db
+    requires:
+     - name: hdi_mod_27_db
+
+
+resources:
+ - name: hdi_mod_27_db
+   parameters:
+      config:
+         schema: PRODUTO_27
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container

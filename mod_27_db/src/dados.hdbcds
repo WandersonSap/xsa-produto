@@ -1,0 +1,25 @@
+namespace produto_27.mod_27_db;
+
+/*@@layout{"layoutInfo":{"x":-137,"y":-93.5}}*/
+context dados {
+
+    /*@@layout{"layoutInfo":{"x":-982,"y":-347.5}}*/
+    entity Categorias {
+        key id   : Integer;
+            nome : String(30);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-694,"y":-345.5}}*/
+    entity Produtos {
+        key id           : Integer;
+            nome         : String(30);
+            to_categoria : association[1, 1..1] to dados.Categorias;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-751,"y":-236.5}}*/
+    type ty_admin {
+        criado_por : String(30);
+        criado_em  : LocalDate;
+        criado_as  : LocalTime;
+    };
+};
